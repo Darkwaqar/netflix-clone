@@ -37,3 +37,12 @@ import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react-native";
     </Authenticator>
 </Authenticator.Provider>
 ```
+
+9. add the splash-screen
+   `npx expo install expo-splash-screen`
+
+10. add React Navigation both native and stack `yarn add @react-navigation/native @react-navigation/stack @react-navigation/bottom-tabs`
+
+11. add expo react navigation decencies and add gesture handle `npx expo install react-native-screens react-native-safe-area-context react-native-gesture-handler`
+
+12. add expo linking `npx expo install expo-linking`
