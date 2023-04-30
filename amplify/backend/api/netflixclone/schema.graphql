@@ -18,7 +18,7 @@ type Movie @model {
   plot: String
   cast: String
   creator: String
-  categoryID: ID! @index(name: "byCategory", sortKeyFields: ["id"])
+  categoryID: ID @index(name: "byCategory", sortKeyFields: ["id"])
   seasons: [Season] @hasMany(indexName: "byMovie", fields: ["id"])
 }
 

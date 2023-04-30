@@ -66,3 +66,19 @@ import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react-native";
     `yarn add @azure/core-asynciterator-polyfill`
     and most importantly do not forget to import the package before any other imports in your app.tsx file:
     `import '@azure/core-asynciterator-polyfill'`
+
+16. add picker
+    `yarn add @react-native-picker/picker`
+
+17. add av for video player
+    `npx expo install expo-av`
+
+18. add dialog picker dont look good in ios
+    `yarn add react-native-modal-dropdown`
+
+# preview
+
+| Login                        | Send Code                    | Home                         |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| ![alt text](./preview/1.png) | ![alt text](./preview/2.png) | ![alt text](./preview/3.png) |
+| ![alt text](./preview/4.png) | ![alt text](./preview/5.png) |

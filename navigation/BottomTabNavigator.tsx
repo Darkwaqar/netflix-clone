@@ -1,4 +1,9 @@
-import { AntDesign, MaterialIcons, Ionicons } from "@expo/vector-icons";
+import {
+  AntDesign,
+  MaterialIcons,
+  Ionicons,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import * as React from "react";
@@ -7,9 +12,12 @@ import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import HomeScreen from "../screens/HomeScreen";
 import MovieDetailsScreen from "../screens/MovieDetailsScreen";
+import Feather from "@expo/vector-icons/Feather";
 
 import TabTwoScreen from "../screens/TabTwoScreen";
 import { BottomTabParamList, HomeParamList, TabTwoParamList } from "../types";
+import { Image, View } from "react-native";
+import logo from "../assets/images/logo.png";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -25,6 +33,7 @@ export default function BottomTabNavigator() {
         name="Home"
         component={TabOneNavigator}
         options={{
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <AntDesign name="home" size={24} color={color} />
           ),
@@ -71,7 +80,45 @@ function TabOneNavigator() {
       <HomeStack.Screen
         name="HomeScreen"
         component={HomeScreen}
-        options={{ headerShown: false }}
+        options={{
+          title: "",
+          headerLeftContainerStyle: {
+            marginLeft: 15,
+          },
+          headerRightContainerStyle: {
+            marginRight: 15,
+          },
+          headerLeft: () => (
+            <Image
+              source={logo}
+              resizeMode="contain"
+              style={{ width: 30, height: 40, margin: 5 }}
+            />
+          ),
+          headerRight: () => (
+            <View style={{ flexDirection: "row" }}>
+              <MaterialIcons
+                name="cast"
+                size={24}
+                color="black"
+                style={{ marginRight: 15 }}
+              />
+
+              <MaterialCommunityIcons
+                name="progress-download"
+                size={24}
+                color="black"
+                style={{ marginRight: 15 }}
+              />
+              <AntDesign
+                name="search1"
+                size={24}
+                color="black"
+                style={{ marginRight: 15 }}
+              />
+            </View>
+          ),
+        }}
       />
       <HomeStack.Screen
         name="MovieDetailsScreen"

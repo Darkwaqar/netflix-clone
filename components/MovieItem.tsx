@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Movie } from "../src/models";
 import { useNavigation } from "@react-navigation/native";
@@ -21,12 +21,20 @@ const MovieItem = ({ movie }: { movie: Movie }) => {
     Storage.get(movie.poster).then(setImageUrl);
   }, []);
   return (
-    <View>
-      <Text>MovieItem</Text>
-    </View>
+    <Pressable onPress={onMoviePress}>
+      <Image style={styles.image} source={{ uri: imageUrl }} />
+    </Pressable>
   );
 };
 
 export default MovieItem;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  image: {
+    width: 100,
+    height: 170,
+    resizeMode: "cover",
+    borderRadius: 5,
+    margin: 5,
+  },
+});
