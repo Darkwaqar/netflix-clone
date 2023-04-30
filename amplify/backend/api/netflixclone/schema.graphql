@@ -1,0 +1,42 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: public }
+} # FOR TESTING ONLY!
+type Category @model {
+  id: ID!
+  title: String!
+  movies: [Movie] @hasMany(indexName: "byCategory", fields: ["id"])
+}
+
+type Movie @model {
+  id: ID!
+  title: String!
+  poster: String!
+  year: Int
+  numberOfSeasons: Int
+  plot: String
+  cast: String
+  creator: String
+  categoryID: ID! @index(name: "byCategory", sortKeyFields: ["id"])
+  seasons: [Season] @hasMany(indexName: "byMovie", fields: ["id"])
+}
+
+type Season @model {
+  id: ID!
+  name: String!
+  movieID: ID! @index(name: "byMovie", sortKeyFields: ["id"])
+  movie: Movie @belongsTo(fields: ["movieID"])
+  episodes: [Episode] @hasMany(indexName: "bySeason", fields: ["id"])
+}
+
+type Episode @model {
+  id: ID!
+  title: String!
+  poster: String!
+  duration: String!
+  plot: String
+  video: String!
+  seasonID: ID! @index(name: "bySeason", sortKeyFields: ["id"])
+  season: Season @belongsTo(fields: ["seasonID"])
+}

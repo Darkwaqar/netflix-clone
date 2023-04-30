@@ -46,3 +46,23 @@ import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react-native";
 11. add expo react navigation decencies and add gesture handle `npx expo install react-native-screens react-native-safe-area-context react-native-gesture-handler`
 
 12. add expo linking `npx expo install expo-linking`
+
+13. add api with amplify with `amplify add api`
+    we use graphQl
+
+- then select provide api name : instagram-clone
+- then select authorization type : Amazon Cognito User Pool
+- configure more auth type :n
+- enable conflict detection :yes
+- default resolution : auto Merge
+- select One-to-many relationship
+- do you want to edit scheme : y
+- generate code with `amplify codegen`
+
+14. add web expo browser
+    `npx expo install expo-web-browser`
+
+15. got into issue https://github.com/aws-amplify/amplify-js/issues/8176
+    `yarn add @azure/core-asynciterator-polyfill`
+    and most importantly do not forget to import the package before any other imports in your app.tsx file:
+    `import '@azure/core-asynciterator-polyfill'`

@@ -12,7 +12,7 @@ export type BottomTabParamList = {
 
 export type HomeParamList = {
   HomeScreen: undefined;
-  MovieDetailsScreen: undefined;
+  MovieDetailsScreen: { id: number };
 };
 
 export type TabTwoParamList = {
