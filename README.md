@@ -1,5 +1,7 @@
 # Clone of NetFlix
 
+## React Native | Typescript | Expo cli | Amplify | Amplify Auth | Amplify UI |Amplify api | Graphql| Splash Screen | React Navigation | Bottom Tab Navigation | Expo Linking | Expo Web Browser | Azure Polyfill | Expo-av | Model DropDown
+
 # Steps
 
 1. use `npx create-expo-app -t expo-template-blank-typescript` this will init the project in typescript
